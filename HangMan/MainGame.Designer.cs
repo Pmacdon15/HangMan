@@ -32,6 +32,7 @@
             label2 = new Label();
             label_Output_Letters = new Label();
             label1 = new Label();
+            btn_PlayAgain = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +79,23 @@
             label1.Text = "Hangman Game";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btn_PlayAgain
+            // 
+            btn_PlayAgain.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            btn_PlayAgain.Location = new Point(545, 107);
+            btn_PlayAgain.Name = "btn_PlayAgain";
+            btn_PlayAgain.Size = new Size(219, 59);
+            btn_PlayAgain.TabIndex = 17;
+            btn_PlayAgain.Text = "Play Again";
+            btn_PlayAgain.UseVisualStyleBackColor = true;
+            btn_PlayAgain.Click += btn_PlayAgain_Click;
+            // 
             // MainGame
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(776, 405);
+            Controls.Add(btn_PlayAgain);
             Controls.Add(label1);
             Controls.Add(label_Output_Letters);
             Controls.Add(label2);
@@ -102,5 +115,6 @@
         private Label label2;
         private Label label_Output_Letters;
         private Label label1;
+        private Button btn_PlayAgain;
     }
 }
