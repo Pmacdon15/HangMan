@@ -13,7 +13,7 @@ namespace HangMan
 {
     public partial class MainGame : Form
     {
-        public string WordToGuess = "hello";
+        public string WordToGuess = "";
         //public char[] WordToGuessArray;
         public int NumberOfWrongGuesses = 0;
 
@@ -174,14 +174,14 @@ namespace HangMan
         private void MainGame_Load(object sender, EventArgs e)
         {
             WordClass word = new WordClass();
-            Lbl_Word.Text = word.getRandomWord();
-            RemainingLetters = Lbl_Word.Text.Length;
+            WordToGuess = word.getRandomWord();
+            RemainingLetters = WordToGuess.Length;
 
-            for (int i = 0; i < Lbl_Word.Text.Length; i++)
+            for (int i = 0; i < WordToGuess.Length; i++)
             {
                 System.Windows.Forms.Label lbl = new();
                 lbl.Name = "guessLetter_" + i;
-                lbl.Text = Lbl_Word.Text.ToCharArray()[i].ToString();
+                lbl.Text = WordToGuess.ToCharArray()[i].ToString();
                 lbl.Size = new Size(40, 50);
                 lbl.Location = new Point(50 + 50 * i, 300);
                 lbl.Font = new Font("Arial", 24, FontStyle.Bold);
