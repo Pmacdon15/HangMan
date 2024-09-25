@@ -193,24 +193,21 @@ namespace HangMan
                 System.Windows.Forms.Label lbl = new();
                 lbl.Name = "guessLetter_" + i;
                 lbl.Text = WordToGuess.ToCharArray()[i].ToString();
-                lbl.Size = new Size(40, 50);
-                lbl.Location = new Point(50 + 50 * i, 300);
+                lbl.Size = new Size(60, 70);
+                lbl.Location = new Point(75 + 75 * i, 450);
                 lbl.Font = new Font("Arial", 24, FontStyle.Bold);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
                 lbl.ForeColor = Color.Black;
 
                 System.Windows.Forms.Label lbl_Cover = new();
-                lbl_Cover.Name = "coverLetter_" + i;
                 lbl_Cover.BackColor = Color.Black;
-                lbl_Cover.Size = new Size(40, 55);
-                lbl_Cover.Location = new Point(50 + 50 * i, 300);
+                lbl_Cover.Size = new Size(60, 75);
+                lbl_Cover.Location = new Point(75 + 75 * i, 450);
 
 
                 this.Controls.Add(lbl);
                 this.Controls.Add(lbl_Cover);
                 lbl_Cover.BringToFront();
-
-
             }
         }
 
