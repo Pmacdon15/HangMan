@@ -39,10 +39,10 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.main;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(9, 20);
+            pictureBox1.Location = new Point(9, 59);
             pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(184, 249);
+            pictureBox1.Size = new Size(184, 210);
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
@@ -50,7 +50,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label2.Location = new Point(218, 121);
+            label2.Location = new Point(235, 148);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(181, 31);
@@ -61,7 +61,7 @@
             // 
             label_Output_Letters.AutoSize = true;
             label_Output_Letters.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label_Output_Letters.Location = new Point(228, 152);
+            label_Output_Letters.Location = new Point(245, 179);
             label_Output_Letters.Margin = new Padding(2, 0, 2, 0);
             label_Output_Letters.Name = "label_Output_Letters";
             label_Output_Letters.Size = new Size(0, 31);

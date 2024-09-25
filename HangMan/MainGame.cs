@@ -13,7 +13,7 @@ namespace HangMan
 {
     public partial class MainGame : Form
     {
-        public string WordToGuess = "";
+        public string WordToGuess = string.Empty;
         //public char[] WordToGuessArray;
         public int NumberOfWrongGuesses = 0;
 
