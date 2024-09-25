@@ -144,6 +144,11 @@ namespace HangMan
         {
             switch (numberOfWrongGuesses)
             {
+                case 0:
+                    pictureBox1.Image = HangMan.Properties.Resources.main;
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    break;
+
                 case 1:
                     pictureBox1.Image = HangMan.Properties.Resources._1Wrong;
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -173,6 +178,12 @@ namespace HangMan
 
         private void MainGame_Load(object sender, EventArgs e)
         {
+
+            NumberOfWrongGuesses = 0;
+            SetImage(0);
+            label_Output_Letters.Text = "";
+
+            btn_PlayAgain.Enabled = false;
             WordClass word = new WordClass();
             WordToGuess = word.getRandomWord();
             RemainingLetters = WordToGuess.Length;
@@ -189,6 +200,7 @@ namespace HangMan
                 lbl.ForeColor = Color.Black;
 
                 System.Windows.Forms.Label lbl_Cover = new();
+                lbl_Cover.Name = "coverLetter_" + i;
                 lbl_Cover.BackColor = Color.Black;
                 lbl_Cover.Size = new Size(40, 55);
                 lbl_Cover.Location = new Point(50 + 50 * i, 300);
@@ -257,6 +269,7 @@ namespace HangMan
 
         private void EndGame(string status)
         {
+            btn_PlayAgain.Enabled = true;
             IsActive = false;
 
             if (status == "win")
@@ -275,10 +288,32 @@ namespace HangMan
                         label.ForeColor == Color.Black)
                     {
                         label.ForeColor = Color.Red;
-                        label.BringToFront() ;
+                        label.BringToFront();
                     }
                 }
             }
+
+        }
+
+        private void btn_PlayAgain_Click(object sender, EventArgs e)
+        {
+
+
+            List<System.Windows.Forms.Label> allLabels = [.. this.Controls.OfType<System.Windows.Forms.Label>()];
+
+            foreach (var label in allLabels)
+            {
+                if (label.Name.Split("_")[0] == "guessLetter" ||
+                    label.Name.Split("_")[0] == "coverLetter")
+                {
+
+                    this.Controls.Remove(label);
+
+                }
+            }
+
+            IsActive = true;
+            MainGame_Load(this, e);
 
         }
     }
