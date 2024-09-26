@@ -1,6 +1,6 @@
 ﻿namespace HangMan
 {
-    partial class MainGame
+    partial class Form_Hangman
     {
         /// <summary>
         /// Required designer variable.
