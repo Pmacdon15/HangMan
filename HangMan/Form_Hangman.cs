@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace HangMan
 {
-    public partial class MainGame : Form
+    public partial class Form_Hangman : Form
     {
         public string WordToGuess = "";
         //public char[] WordToGuessArray;
@@ -21,7 +21,7 @@ namespace HangMan
 
         bool IsActive = true;
 
-        public MainGame()
+        public Form_Hangman()
         {
             InitializeComponent();
             //WordToGuessArray = WordToGuess.ToCharArray();
@@ -202,7 +202,7 @@ namespace HangMan
                 System.Windows.Forms.Label lbl_Cover = new();
                 lbl_Cover.BackColor = Color.Black;
                 lbl_Cover.Size = new Size((int)(this.Width * 0.05), (int)(this.Height * .12));
-                lbl_Cover.Location = new Point((int)(this.Width * 0.07) * i+ (int)(this.Width * 0.03), (int)(this.Height * 0.7));
+                lbl_Cover.Location = new Point((int)(this.Width * 0.07) * i+ (int)(this.Width * 0.03), (int)(this.Height * 0.72));
 
                 this.Controls.Add(lbl);
                 this.Controls.Add(lbl_Cover);
