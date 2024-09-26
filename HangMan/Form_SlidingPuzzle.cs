@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,19 +14,39 @@ namespace HangMan
 {
     public partial class Form_SlidingPuzzle : Form
     {
-
-        private int size = 3;
+        private int SizeBoard;
+        private int Corrects = 0;
         private List<int> listOfPosition = new List<int>();
         private int indexOfEmptyPosition;
-        private List<int> indexOfPossibleMoves;
         private Button moveButton;
+        private string[] SolutionPositions;
+        private string[] CurrentPositions;
+        private bool isSet = false;
+
+        private class Position
+        {
+            public string text;
+            public int posX;
+            public int posY;
+
+            public Position(string text, int posX, int posY)
+            {
+                this.text = text;
+                this.posX = posX;
+                this.posY = posY;
+
+            }
+        }
+
 
 
         public Form_SlidingPuzzle(int size)
         {
             InitializeComponent();
 
-            this.size = size;
+            //label1.Text = Corrects.ToString();
+            this.SizeBoard = size;
+            SolutionPositions = new string[size * size];
 
             // create a listOfPositions. Ex: 21 (2 indicates row 2, and 1 indicates col 1)
             for (int i = 1; i <= size; i++)
@@ -47,6 +69,8 @@ namespace HangMan
                 newButton.Click += new EventHandler(this.MyButtonHandler);
                 newButton.Font = new Font("Arial", 24, FontStyle.Bold);
                 this.Controls.Add(newButton);
+
+                SolutionPositions[i] = (i + 1).ToString() + " - " + (30 + i % size * 100).ToString() + " - " + ((i / size) * 100 + 30).ToString();
             }
 
             indexOfEmptyPosition = size * 10 + size;
@@ -61,14 +85,37 @@ namespace HangMan
             //holeButton.Click += new EventHandler(this.MyButtonHandler);
             this.Controls.Add(holeButton);
             moveButton = holeButton;
+            SolutionPositions[size * size - 1] = ("0" + " - " + (30 + (size - 1) * 100).ToString() + " - " + ((size - 1) * 100 + 30).ToString());
 
 
+            //for (int j = 0; j < SolutionPositions.Length; j++)
+            //{
+            //    MessageBox.Show(SolutionPositions[j]);
+            //}
 
         }
 
-        private bool checkEnd()
+        private void checkEnd()
         {
-            return false;
+            Corrects = 0;
+            List<Button> allButtons = [.. this.Controls.OfType<Button>()];
+
+            foreach (var button in allButtons)
+            {
+
+                //MessageBox.Show(button.Text + " - " + button.Location.X.ToString() + " - " + button.Location.Y.ToString());
+                if (SolutionPositions.Contains(button.Text + " - " + button.Location.X + " - " + button.Location.Y))
+                {
+                    Corrects++;
+                }
+            }
+
+            //label1.Text = Corrects.ToString();
+           
+            if(Corrects + 1 == SolutionPositions.Length)
+            {
+                MessageBox.Show("You Win!");
+            }
         }
 
         private void Form_SlidingPuzzle_Load(object sender, EventArgs e)
@@ -108,11 +155,13 @@ namespace HangMan
             Random rnd = new Random();
 
 
-            for (int i = 0; i < 1000*size; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 int r = rnd.Next(allButtons.Count);
                 allButtons[r].PerformClick();
             }
+
+            isSet = true;
         }
 
 
@@ -140,7 +189,13 @@ namespace HangMan
                 //MessageBox.Show("Is Possible");
             }
 
+            if (isSet)
+            {
+                checkEnd();
+            }
+
 
         }
+
     }
 }
