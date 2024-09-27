@@ -40,10 +40,10 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.main;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(14, 30);
+            pictureBox1.Location = new Point(9, 20);
             pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(276, 374);
+            pictureBox1.Size = new Size(184, 249);
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
@@ -51,9 +51,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label2.Location = new Point(327, 203);
+            label2.Location = new Point(218, 135);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(265, 45);
+            label2.Size = new Size(181, 31);
             label2.TabIndex = 13;
             label2.Text = "Letters Guessed";
             // 
@@ -61,19 +62,19 @@
             // 
             label_Output_Letters.AutoSize = true;
             label_Output_Letters.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label_Output_Letters.Location = new Point(327, 248);
+            label_Output_Letters.Location = new Point(218, 165);
+            label_Output_Letters.Margin = new Padding(2, 0, 2, 0);
             label_Output_Letters.Name = "label_Output_Letters";
-            label_Output_Letters.Size = new Size(0, 45);
+            label_Output_Letters.Size = new Size(0, 31);
             label_Output_Letters.TabIndex = 14;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Maiandra GD", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(352, 30);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(235, 20);
             label1.Name = "label1";
-            label1.Size = new Size(440, 67);
+            label1.Size = new Size(317, 48);
             label1.TabIndex = 16;
             label1.Text = "Hangman Game";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -81,26 +82,28 @@
             // btn_PlayAgain
             // 
             btn_PlayAgain.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            btn_PlayAgain.Location = new Point(818, 160);
-            btn_PlayAgain.Margin = new Padding(4);
+            btn_PlayAgain.Location = new Point(545, 107);
             btn_PlayAgain.Name = "btn_PlayAgain";
-            btn_PlayAgain.Size = new Size(328, 88);
+            btn_PlayAgain.Size = new Size(219, 59);
             btn_PlayAgain.TabIndex = 17;
             btn_PlayAgain.Text = "Play Again";
             btn_PlayAgain.UseVisualStyleBackColor = true;
             btn_PlayAgain.Click += btn_PlayAgain_Click;
             // 
-            // MainGame
+            // Form_Hangman
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1164, 608);
+            BackgroundImage = Properties.Resources.pexels_jimbear_1309902;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(776, 405);
             Controls.Add(btn_PlayAgain);
             Controls.Add(label1);
             Controls.Add(label_Output_Letters);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
-            Name = "MainGame";
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "Form_Hangman";
             Text = " ";
             Load += MainGame_Load;
             KeyUp += MainGame_KeyUp;
