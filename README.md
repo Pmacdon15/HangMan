@@ -20,4 +20,4 @@ A Game focused on Hangman but also includes a puzzle slider game
 1. Hangman Game
 
 ## Coming Soon
-1. Puzzle Sliding Game!
+1. Puzzle Sliding Game!!
