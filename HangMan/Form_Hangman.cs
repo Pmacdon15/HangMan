@@ -192,17 +192,18 @@ namespace HangMan
             {
                 System.Windows.Forms.Label lbl = new();
                 lbl.Name = "guessLetter_" + i;
+                lbl.BackColor = Color.Transparent;
+                lbl.ForeColor = Color.White;
                 lbl.Text = WordToGuess.ToCharArray()[i].ToString();
                 lbl.Size = new Size((int)(this.Width * 0.05), (int)(this.Height * .12));
                 lbl.Location = new Point((int)(this.Width * 0.07) * i + (int)(this.Width * 0.03), (int)(this.Height * 0.7));
                 lbl.Font = new Font("Arial", 24, FontStyle.Bold);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
-                lbl.ForeColor = Color.Black;
 
                 System.Windows.Forms.Label lbl_Cover = new();
-                lbl_Cover.BackColor = Color.Black;
-                lbl_Cover.Size = new Size((int)(this.Width * 0.05), (int)(this.Height * .12));
-                lbl_Cover.Location = new Point((int)(this.Width * 0.07) * i+ (int)(this.Width * 0.03), (int)(this.Height * 0.72));
+                lbl_Cover.BackColor = Color.White;
+                lbl_Cover.Size = new Size((int)(this.Width * 0.05), (int)(this.Height * .15));
+                lbl_Cover.Location = new Point((int)(this.Width * 0.07) * i + (int)(this.Width * 0.03), (int)(this.Height * 0.7));
 
                 this.Controls.Add(lbl);
                 this.Controls.Add(lbl_Cover);
@@ -242,7 +243,7 @@ namespace HangMan
                         //MessageBox.Show(label.Text);
                         //MessageBox.Show(e.KeyData.ToString());
                         label.BringToFront();
-                        label.ForeColor = Color.Green;
+                        label.ForeColor = Color.LightGreen;
                         RemainingLetters--;
                         hasLetter = true;
                     }
@@ -281,9 +282,9 @@ namespace HangMan
                 foreach (var label in allLabels)
                 {
                     if (label.Name.Split("_")[0] == "guessLetter" &&
-                        label.ForeColor == Color.Black)
+                        label.ForeColor == Color.White)
                     {
-                        label.ForeColor = Color.Red;
+                        label.ForeColor = Color.LightPink;
                         label.BringToFront();
                     }
                 }
@@ -301,7 +302,7 @@ namespace HangMan
                 {
                     this.Controls.Remove(label);
                 }
-                
+
             }
 
             IsActive = true;

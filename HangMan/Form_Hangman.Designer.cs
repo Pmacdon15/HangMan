@@ -50,8 +50,9 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label2.Location = new Point(218, 135);
+            label2.Location = new Point(195, 211);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(181, 31);
@@ -61,8 +62,10 @@
             // label_Output_Letters
             // 
             label_Output_Letters.AutoSize = true;
+            label_Output_Letters.BackColor = Color.Transparent;
             label_Output_Letters.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label_Output_Letters.Location = new Point(218, 165);
+            label_Output_Letters.ForeColor = Color.White;
+            label_Output_Letters.Location = new Point(195, 241);
             label_Output_Letters.Margin = new Padding(2, 0, 2, 0);
             label_Output_Letters.Name = "label_Output_Letters";
             label_Output_Letters.Size = new Size(0, 31);
@@ -71,7 +74,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Maiandra GD", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(235, 20);
             label1.Name = "label1";
             label1.Size = new Size(317, 48);
@@ -82,6 +87,7 @@
             // btn_PlayAgain
             // 
             btn_PlayAgain.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            btn_PlayAgain.ForeColor = Color.Black;
             btn_PlayAgain.Location = new Point(545, 107);
             btn_PlayAgain.Name = "btn_PlayAgain";
             btn_PlayAgain.Size = new Size(219, 59);
@@ -102,7 +108,8 @@
             Controls.Add(label_Output_Letters);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            ForeColor = Color.White;
+            Margin = new Padding(2);
             Name = "Form_Hangman";
             Text = " ";
             Load += MainGame_Load;
