@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Welcome));
             btn_Start = new Button();
             btn_Start3 = new Button();
             btn_Start4 = new Button();
@@ -100,6 +101,7 @@
             Controls.Add(btn_Start4);
             Controls.Add(btn_Start3);
             Controls.Add(btn_Start);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "Form_Welcome";
             Text = "Hangman Game - Welcome Screen";
