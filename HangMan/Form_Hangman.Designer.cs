@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Hangman));
             pictureBox1 = new PictureBox();
             label2 = new Label();
             label_Output_Letters = new Label();
@@ -109,6 +110,7 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             ForeColor = Color.White;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "Form_Hangman";
             Text = " ";
