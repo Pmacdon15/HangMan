@@ -21,12 +21,13 @@ namespace HangMan
 
         bool IsActive = true;
 
+
         public Form_Hangman()
         {
             InitializeComponent();
             
         }
-
+        // function to set game image
         private void SetImage(int numberOfWrongGuesses)
         {
             switch (numberOfWrongGuesses)
@@ -35,7 +36,6 @@ namespace HangMan
                     pictureBox1.Image = HangMan.Properties.Resources.main;
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                     break;
-
                 case 1:
                     pictureBox1.Image = HangMan.Properties.Resources._1Wrong;
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -71,6 +71,7 @@ namespace HangMan
 
         private void StartGame()
         {
+            // Set defauly values
             NumberOfWrongGuesses = 0;
             SetImage(0);
             label_Output_Letters.Text = "";
@@ -80,6 +81,7 @@ namespace HangMan
             WordToGuess = word.getRandomWord();
             RemainingLetters = WordToGuess.Length;
 
+            // Draw letter boxes and cover labels
             for (int i = 0; i < WordToGuess.Length; i++)
             {
                 System.Windows.Forms.Label lbl = new();
@@ -105,13 +107,14 @@ namespace HangMan
 
         private void MainGame_KeyUp(object sender, KeyEventArgs e)
         {
-
+            // Deal with key presses  when games is over
             if (!IsActive) return;
 
+            // Deal with key presses when game is on
             List<System.Windows.Forms.Label> allLabels = [.. this.Controls.OfType<System.Windows.Forms.Label>()];
             if (e.KeyData >= Keys.A && e.KeyData <= Keys.Z)
             {
-
+                // Do nothing is letter has been entered b4
                 if (label_Output_Letters.Text.Contains(e.KeyData.ToString()))
                 {
                     return;
@@ -125,7 +128,7 @@ namespace HangMan
                 {
                     label_Output_Letters.Text += ", " + e.KeyData.ToString();
                 }
-
+                // Letter guessed correct
                 bool hasLetter = false;
                 foreach (var label in allLabels)
                 {
@@ -140,22 +143,23 @@ namespace HangMan
                         hasLetter = true;
                     }
                 }
+                // Wrong Letter
                 if (!hasLetter)
                 {
                     NumberOfWrongGuesses++;
                     SetImage(NumberOfWrongGuesses);
                 }
-
+                // End of game lose
                 if (NumberOfWrongGuesses == 6) EndGame("lose");
 
-
+                // End of game win
                 if (RemainingLetters == 0)
                 {
                     EndGame("win");
                 }
             }
         }
-
+        // end game function 
         private void EndGame(string status)
         {
             btn_PlayAgain.Enabled = true;
@@ -183,9 +187,10 @@ namespace HangMan
             }
 
         }
-
+        // Play again function
         private void btn_PlayAgain_Click(object sender, EventArgs e)
         {
+            // Remove all labels
             List<System.Windows.Forms.Label> allLabels = this.Controls.OfType<System.Windows.Forms.Label>().ToList();
 
             foreach (var label in allLabels)
